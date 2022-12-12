@@ -1,10 +1,13 @@
 import React from 'react'
-import 'Navbar.css';
+import './Navbar.css';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 
 
 const Navbar = () => {
+
+    const [toggleMenu, setToggleMenu] = React.useState(false)
+
   return (
     <div className='app__navbar'>
      <nav className="app__navbar">
@@ -19,12 +22,14 @@ const Navbar = () => {
         <li className="p__opensans"><a href="#contact">Contact</a></li>
       </ul>
       <div className="app__navbar-login">
-        <a href="#login" className="p__opensans">Log In / Registration</a>
-        <div />
-        <a href="/" className="p__opensans">Book Table</a>
+        <a href="#login" className="p__opensans">Log In</a>
+        <div></div>
+        <a href="/" className="p__opensans">Book A Table</a>
       </div>
+
       <div className="app__navbar-smallscreen">
         <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
+        
         {toggleMenu && (
           <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
             <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setToggleMenu(false)} />
